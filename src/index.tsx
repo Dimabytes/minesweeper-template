@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'antd/dist/antd.css'
+import {Col, Row, Typography} from 'antd';
+
+import {Toolbar} from 'components/Toolbar';
+import styles from './index.module.scss'
+import {GameHeader} from 'components/GameHeader';
+import {GameField} from 'components/GameField';
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div className={styles.main}>
+    <div className={styles.content}>
+      <Row justify="center">
+        <Col>
+          <Typography.Title>💣 Minesweeper 💣</Typography.Title>
+        </Col>
+      </Row>
+      <Toolbar/>
+      <div className={styles.game}>
+        <GameHeader/>
+        <GameField/>
+      </div>
+    </div>
+
+  </div>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
